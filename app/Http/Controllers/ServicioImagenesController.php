@@ -41,7 +41,7 @@ class ServicioImagenesController extends Controller
     {
                 $consulta = new db();
                 $response= new CategoriaWooController();
-                
+
                 $id_combo = (int)$_POST['id_combo'];
                 $contexto = (int)$_POST['contexto'];
                 $id_categoria = (int)$_POST['secundary'];
@@ -57,14 +57,8 @@ class ServicioImagenesController extends Controller
                 $nombreCategoria = " ";
                 $imagen = " ";
 
-                if($id_combo == 3 || $id_combo == 4){
-                    $arregloCamposCategoria = $response->obtenerCategoriaxId($id_categoria);
-                    $nombreCategoria = $arregloCamposCategoria['nombreCategoria'];
-                    $imagen = $arregloCamposCategoria['imagen'];
+                $id_categoria = 0;
 
-                }else{
-                    $id_categoria = 0;
-                }
 
                 if(!isset($texto_footer)){
                     $texto_footer = " ";

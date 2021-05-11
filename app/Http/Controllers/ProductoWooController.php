@@ -75,14 +75,23 @@ class ProductoWooController extends Controller
             }
 
             //return json_encode($ite['description']);
-            if($ite['description'] == ""){
+            if($ite['description'] == "" || $ite['description'] ==  null){
                 $url = "";
                 $descripcion = "";
             }
             else{
                 //dd($ite['description']);
                 preg_match_all($regex,$ite['description'],$url);
-                $url = $url['0']['0'];
+                if(array_key_exists('0', $url)){
+                    if(array_key_exists('0', $url['0'])){
+                        $url = $url['0']['0'];
+                    }else{
+                        $url = "";
+                    }
+                }else{
+                    $url = "";
+                }
+
                 $descripcion = $ite['description'];
                 //dd($url);
             }

@@ -61,7 +61,7 @@ class MagentoController extends BaseController
             'existeError' => "false",
             'mensaje' => "",
         ];
-
+        //dd($arregloNoError);
         $token = $this->token3();
 
         $urlCategoria = env('URL_TOKEN_CATEGORIA');

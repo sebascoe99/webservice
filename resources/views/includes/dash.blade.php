@@ -74,17 +74,7 @@
 
 
         $(document).ready(function(){
-        $("#id_combo").change(function () {
-             var end = this.value;
-            //console.log($('#id_combo').val());
-
-                if (($('#id_combo').val() == 3) || ($('#id_combo').val() == 4)) {
-                    document.getElementById('obj1').style.display='block'
-                }else{
-                    document.getElementById('obj1').style.display='none'
-                }
-
-            });
+        
 
 
             $("#id_combo2").change(function () {

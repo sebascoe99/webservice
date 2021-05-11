@@ -92,6 +92,12 @@ $router->get('/consultarGarantiasDisponibles', ['uses' => 'ConsultasController@c
 $router->get('/homeFesa', ['uses' => 'ConsultasController@consultarImagenesMagento']);
 $router->get('/'.env('URL_IMAGENES').'{id_tipo_archivo}/{nombre_archivo}', 'ConsultasController@ConsultarArchivoMa');
 
+$router->post('/obtenerIdCarrito', ['uses' => 'PedidoController@obtenerIdCarrito']);
+$router->post('/agregarProductos', ['uses' => 'PedidoController@agregarProductos']);
+$router->get('/verProductosAgregados', ['uses' => 'PedidoController@verProductosAgregados']);
+$router->get('/consultarBlog', ['uses' => 'BlogController@consultarBlog']);
+
+
 
 
 

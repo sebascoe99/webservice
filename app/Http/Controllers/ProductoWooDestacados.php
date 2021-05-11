@@ -35,7 +35,7 @@ class ProductoWooDestacados extends Controller
     public function consultaProdDestacado(){
         $response2 = new ProductoWooController();
         $arrayDatos=$response2->consultaProdAtributos();
-
+        //dd($arrayDatos);
         $datosProd=json_decode( json_encode( $arrayDatos ), true );
 
         if (is_array($datosProd))
@@ -47,7 +47,7 @@ class ProductoWooDestacados extends Controller
                     if ($ite2['destacado'] == true)
                     {
                             $arregloNuevo = null;
-							
+
 							$textoReducido = explode('<h4><strong>Ficha del producto', $ite2['descripcion']);
 
                             $arregloNuevo = [

@@ -14,8 +14,16 @@ class InicioSesionController extends Controller
         $password= $request->password;
 
         //$respuestaValidacion = array ("code" =>"", "message" => "", "data"=>""  );
+        if(!isset($username) || trim($username) == "" && !isset($password) || trim($password) == ""){
+            $arregloError = [
+                'existeError' => "true",
+                'mensaje' => "Error: username y password es vacio o nulo",
+            ];
 
-        if(!isset($username) || trim($username) == ""){
+            $arregloConsolidado = array ("data" => $arregloNuevo, "informacion" => $arregloError);
+            return json_encode( $arregloConsolidado );
+        }
+        else if(!isset($username) || trim($username) == ""){
             $arregloError = [
                 'existeError' => "true",
                 'mensaje' => "Error: username es vacio o nulo",

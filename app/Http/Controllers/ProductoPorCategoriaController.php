@@ -162,7 +162,6 @@ class ProductoPorCategoriaController extends BaseController
 
                 }//Cerrar if si existe subcategorias
 
-
             $arregloFinal = [
                 'subcategorias' => $arregloDeSub
             ];
@@ -262,12 +261,15 @@ class ProductoPorCategoriaController extends BaseController
             $stock = "0";
         }
 
-        $file = " ";
+        $file = array();
+
+        //dd($valor);
 
         if(array_key_exists('media_gallery_entries', $valor)){
-            if(array_key_exists('0', $valor['media_gallery_entries'])){
-                if(array_key_exists('file', $valor['media_gallery_entries']['0'])){
-                    $file = env('URL_HOME_IMAGEN') . $valor['media_gallery_entries']['0']['file'];
+            if(sizeof($valor['media_gallery_entries']) >= 1){
+
+                foreach ($valor['media_gallery_entries'] as $image){
+                    $file[] = env('URL_HOME_IMAGEN') . $image['file'];
                 }
             }
         }
